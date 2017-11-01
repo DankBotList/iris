@@ -23,6 +23,10 @@ type Service struct {
 	pool   *redis.Pool
 }
 
+func (r *Service) GetRedis() *redis.Pool {
+	return r.pool
+}
+
 // PingPong sends a ping and receives a pong, if no pong received then returns false and filled error
 func (r *Service) PingPong() (bool, error) {
 	c := r.pool.Get()
